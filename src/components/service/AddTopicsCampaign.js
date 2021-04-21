@@ -7,10 +7,10 @@ export default function AddTopicsCampaign() {
 
 
   const addCampaign = (values) => {
-    axios.post("localhost:8080/api/v1/campaign/add-topic-camp", values).then((res) => {
+    axios.post("http://localhost:8080/api/v1/campaign/add-campaign", values).then((res) => {
       if (res.status === 200) {
         console.log("Succes");
-
+        console.log(values)
         swal({
           title: "Good job!",
           text: "Your campaign was added",
@@ -22,13 +22,7 @@ export default function AddTopicsCampaign() {
       }
     });
   }
-
-
-  const addAnotherTopic = () =>
-  push({
-    topicName: "",
-    topicDescription: "",
-  })
+  
 
 
   return (
@@ -122,7 +116,12 @@ export default function AddTopicsCampaign() {
                             <button
                               className="btn_1"
                               type="button"
-                              onClick={addAnotherTopic}
+                              onClick={
+                                () => push({
+                                  topicName: "",
+                                  topicDescription: "",
+                                })
+                              }
                             >
                               Add Another Topic
                             </button>

@@ -5,6 +5,14 @@ export default function AppNavbar() {
   const [userIsLogin, setIsLogin] = useState(false);
   const [firstName, setFirstName] = useState("");
 
+  useEffect(() => {
+    if (window.sessionStorage.getItem("userEmail")) {
+      setIsLogin(true);
+      setFirstName(window.sessionStorage.getItem("firstName"));
+      
+    }
+  }, []);
+
   return (
     <div>
       <Navbar bg="light" expand="lg">

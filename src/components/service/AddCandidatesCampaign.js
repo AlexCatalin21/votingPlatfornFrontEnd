@@ -4,13 +4,14 @@ import axios from "axios";
 import swal from "sweetalert";
 
 export default function AddCandidatesCampaign() {
+
+
   const addCampaign = (values) => {
     axios
-      .post("localhost:8080/api/v1/campaign/add-candidates-camp", values)
+      .post("http://localhost:8080/api/v1/campaign/add-campaign", values)
       .then((res) => {
         if (res.status === 200) {
           console.log("Succes");
-
           swal({
             title: "Good job!",
             text: "Your campaign was added",
@@ -22,16 +23,6 @@ export default function AddCandidatesCampaign() {
         }
       });
   };
-
-  const addAnotherCandidate = () =>
-    push({
-      firstName: "",
-      lastName: "",
-      candidateDescription: "",
-      electoralSpeech: "",
-      birthdate: "",
-    });
-
   return (
     <div>
       <Formik
@@ -54,7 +45,7 @@ export default function AddCandidatesCampaign() {
             },
           ],
         }}
-        onSubmit={addCampaign}
+        onSubmit= {addCampaign}
       >
         {({ values }) => (
           <div className="container">
@@ -84,10 +75,11 @@ export default function AddCandidatesCampaign() {
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-6">
-                      <Field name="password" placeholder="Password" />
+                      <Field type="password" name="password" placeholder="Password" />
                     </div>
                     <div className="col-sm-6 text-warning">
                       <Field
+                        type="password"
                         name="confirmedPassword"
                         placeholder="Confirm password"
                       />
@@ -140,7 +132,14 @@ export default function AddCandidatesCampaign() {
                                 </div>
                               );
                             })}
-                            <button className="btn_1" type="button" onClick={addAnotherCandidate}>
+                            <button className="btn_1" type="button" onClick={() =>
+                            push({
+                              firstName: "",
+                              lastName: "",
+                              candidateDescription: "",
+                              electoralSpeech: "",
+                              birthdate: "",
+                            })}>
                               Add Another Candidate
                             </button>
                           </div>
