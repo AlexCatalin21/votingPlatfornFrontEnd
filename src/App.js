@@ -8,6 +8,7 @@ import AddTopicsCampaign from "./components/service/AddTopicsCampaign";
 import Register from "./components/service/Register";
 import Login from "./components/service/Login";
 import Logout from "./components/service/Logout";
+import CampaignList from "./components/layout/CampaignList";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/register" component={Register}></Route>
         <Route path="/login" component={Login}></Route>
         <Route path="/logout" component={Logout}></Route>
+        <Route path="/campaigns" component={CampaignList}></Route>
       </Switch>
     </div>
   );

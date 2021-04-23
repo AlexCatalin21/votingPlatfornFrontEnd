@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
+import { Button } from "react-bootstrap";
 import swal from "sweetalert";
 
 export default function Register() {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSubmit = (values) =>{
+  //create file to store url
+
+  const handleSubmit = (values) => {
     console.log(values);
     axios
       .post("http://localhost:8080/api/v1/auth/register", values)
@@ -27,9 +30,7 @@ export default function Register() {
       .catch((err) => {
         console.log(err);
       });
-  }
-    
-  
+  };
 
   return (
     <div>
@@ -45,42 +46,66 @@ export default function Register() {
         }}
         onSubmit={handleSubmit}
       >
-          <div className="container">
-            <div className="row">
-              <Form className="registerForm">
+        <div className="container">
+          <h3>Register</h3>
+          <div className="row registerForm">
+            <Form>
+              <div className="registerField">
                 Email:
-                <Field name="email" type="email" placeholder="Email..." />
+                <Field className="inputField" name="email" type="email" placeholder="Email..." />
+              </div>
+              <div className="registerField">
+                <div className="registerField">
                 Firstname:
                 <Field
+                className="inputField"
                   name="firstName"
                   type="text"
                   placeholder="Firstname..."
                 />
+                </div>
+                <div className="registerField">
                 Lastname:
-                <Field name="lastName" type="text" placeholder="Lastname..." />
+                <Field className="inputField" name="lastName" type="text" placeholder="Lastname..." />
+                </div>
+              </div>
+              <div className="registerField">
+                <div className="registerField">
                 Password:
                 <Field
+                className="inputField"
                   name="password"
                   type="password"
                   placeholder="Password..."
                 />
-                Confirm password:
+                </div>
+                <div className="registerField">
+                Confirm password: 
                 <Field
+                className="inputField"
                   name="confirmPassword"
                   type="password"
                   placeholder="Confirm password"
                 />
+                </div>
+              </div>
+              <div className="registerField">
                 Birthdate:
-                <Field name="birthDate" type="date"/>
+                <Field className="inputField" name="birthDate" type="date" />
+              </div>
+              <div className="registerField">
                 Select your gender:
-                <Field as="select" name="genderID">
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
+                <Field className="inputField" as="select" name="genderID">
+                  <option value="1">Male</option>
+                  <option value="2">Female</option>
                 </Field>
-                <input className="btn_1" type="submit"></input>
-              </Form>
-            </div>
+              </div>
+              <Button variant="primary" size="lg" type="submit">
+                Register
+              </Button>
+            </Form>
           </div>
+        </div>
       </Formik>
     </div>
   );

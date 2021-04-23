@@ -2,10 +2,12 @@ import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import axios from "axios";
 import swal from "sweetalert";
+import { Button } from "react-bootstrap";
 
 export default function AddCandidatesCampaign() {
 
 
+  //create file to store url
   const addCampaign = (values) => {
     axios
       .post("http://localhost:8080/api/v1/campaign/add-campaign", values)
@@ -45,7 +47,7 @@ export default function AddCandidatesCampaign() {
             },
           ],
         }}
-        onSubmit= {addCampaign}
+        onSubmit={addCampaign}
       >
         {({ values }) => (
           <div className="container">
@@ -54,10 +56,13 @@ export default function AddCandidatesCampaign() {
                 <Form className="addCampaignForm">
                   <div className="form-group row">
                     <div className="col-sm-6">
-                      <Field name="name" placeholder="Campaign name" />
+                      <label>Campaign name:</label>
+                      <Field className="inputField" name="name" placeholder="Campaign name" />
                     </div>
-                    <div className="col-sm-6 text-warning">
+                    <div className="col-sm-6">
+                      <label>Campaign description:</label>
                       <Field
+                      className="inputField"
                         name="description"
                         placeholder="Campaign description"
                       />
@@ -66,19 +71,28 @@ export default function AddCandidatesCampaign() {
                   <div className="form-group row">
                     <div className="col-sm-6 text-color">
                       Start date :
-                      <Field name="startDate" type="datetime-local" />
+                      <Field className="inputField" name="startDate" type="datetime-local" />
                     </div>
                     <div className="col-sm-6 text-color">
                       Expire date :
-                      <Field name="expireDate" type="datetime-local" />
+                      <Field className="inputField" name="expireDate" type="datetime-local" />
                     </div>
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-6">
-                      <Field type="password" name="password" placeholder="Password" />
-                    </div>
-                    <div className="col-sm-6 text-warning">
+                      <label>Password:</label>
                       <Field
+                      className="inputField"
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                      />
+                    </div>
+
+                    <div className="col-sm-6">
+                      <label>Confirm password:</label>
+                      <Field
+                      className="inputField"
                         type="password"
                         name="confirmedPassword"
                         placeholder="Confirm password"
@@ -101,47 +115,70 @@ export default function AddCandidatesCampaign() {
                                   <h5 className="mt-3 text-color">Candidate</h5>
                                   <div className="form-group row">
                                     <div className="col-sm-6">
+                                      <label>Candidate first name: </label>
                                       <Field
+                                      className="inputField"
                                         type="text"
                                         name={firstName}
                                         placeholder="Candidate first name"
                                       />
                                     </div>
+
                                     <div className="col-sm-6">
+                                      <label>Candidate last name: </label>
                                       <Field
+                                      className="inputField"
                                         type="text"
                                         name={lastName}
                                         placeholder="Candidate last name"
                                       />
                                     </div>
                                   </div>
-                                  <Field
-                                    type="text"
-                                    name={candidateDescription}
-                                    placeholder="Candidate description"
-                                  />
-                                  <Field
-                                    type="text"
-                                    name={electoralSpeech}
-                                    placeholder="Electoral speech"
-                                  />
-                                  <div>
+                                  <div className="form-group row">
+                                    <div className="col-sm-6">
+                                      <label>Candidate description:</label>
+                                      <Field
+                                      className="inputField"
+                                        type="text"
+                                        name={candidateDescription}
+                                        placeholder="Candidate description"
+                                      />
+                                    </div>
+                                    <div className="col-sm-6">
+                                      <label>Candidate electoral speech:</label>
+                                      <Field
+                                      className="inputField"
+                                        type="text"
+                                        name={electoralSpeech}
+                                        placeholder="Electoral speech"
+                                      />
+                                    </div>
+                                  </div>
+                                  <div className = "form-group row">
+                                    <div className = "col-sm-6">
                                     Birthdate:
-                                    <Field type="date" name={birthdate} />
+                                    <Field
+                                    className="inputField" type="date" name={birthdate} />
+                                  </div>
                                   </div>
                                 </div>
                               );
                             })}
-                            <button className="btn_1" type="button" onClick={() =>
-                            push({
-                              firstName: "",
-                              lastName: "",
-                              candidateDescription: "",
-                              electoralSpeech: "",
-                              birthdate: "",
-                            })}>
+                            <Button
+                              className="btn_1"
+                              type="button"
+                              onClick={() =>
+                                push({
+                                  firstName: "",
+                                  lastName: "",
+                                  candidateDescription: "",
+                                  electoralSpeech: "",
+                                  birthdate: "",
+                                })
+                              }
+                            >
                               Add Another Candidate
-                            </button>
+                            </Button>
                           </div>
                         )}
                       </FieldArray>

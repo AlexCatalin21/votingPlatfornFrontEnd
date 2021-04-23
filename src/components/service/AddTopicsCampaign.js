@@ -2,8 +2,11 @@ import React from "react";
 import { Formik, Form, Field, FieldArray } from "formik";
 import axios from "axios";
 import swal from "sweetalert";
+import { Button } from "react-bootstrap";
 
 export default function AddTopicsCampaign() {
+
+  //create file to store url
 
 
   const addCampaign = (values) => {
@@ -53,10 +56,13 @@ export default function AddTopicsCampaign() {
                 <Form className="addCampaignForm">
                   <div className="form-group row">
                     <div className="col-sm-6">
-                      <Field name="name" placeholder="Campaign name" />
+                      <label>Campaign name:</label>
+                      <Field className="inputField" name="name" placeholder="Campaign name" />
                     </div>
-                    <div className="col-sm-6 text-warning">
+                    <div className="col-sm-6">
+                      <label>Campaign description:</label>
                       <Field
+                      className="inputField"
                         name="description"
                         placeholder="Campaign description"
                       />
@@ -64,20 +70,23 @@ export default function AddTopicsCampaign() {
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-6 text-color">
-                      Start date :
-                      <Field name="startDate" type="datetime-local" />
+                      <label>Start date:</label>
+                      <Field className="inputField" name="startDate" type="datetime-local" />
                     </div>
                     <div className="col-sm-6 text-color">
-                      Expire date :
-                      <Field name="expireDate" type="datetime-local" />
+                      <label>Expire date:</label>
+                      <Field className="inputField" name="expireDate" type="datetime-local" />
                     </div>
                   </div>
                   <div className="form-group row">
                     <div className="col-sm-6">
+                      <label>Password:</label>
                       <Field name="password" placeholder="Password" />
                     </div>
-                    <div className="col-sm-6 text-warning">
+                    <div className="col-sm-6">
+                      <label>Confirm password</label>
                       <Field
+                      className="inputField"
                         name="confirmedPassword"
                         placeholder="Confirm password"
                       />
@@ -96,14 +105,18 @@ export default function AddTopicsCampaign() {
                                   <h5 className="mt-3 text-color">Topic</h5>
                                   <div className="form-group row">
                                     <div className="col-sm-6">
+                                      <label>Topic name:</label>
                                       <Field
+                                      className="inputField"
                                         type="text"
                                         name={topicName}
                                         placeholder="Topic name"
                                       />
                                     </div>
                                     <div className="col-sm-6">
+                                      <label>Topic description:</label>
                                       <Field
+                                      className="inputField"
                                         type="text"
                                         name={topicDescription}
                                         placeholder="Topic description"
@@ -113,7 +126,7 @@ export default function AddTopicsCampaign() {
                                 </div>
                               );
                             })}
-                            <button
+                            <Button
                               className="btn_1"
                               type="button"
                               onClick={
@@ -124,7 +137,7 @@ export default function AddTopicsCampaign() {
                               }
                             >
                               Add Another Topic
-                            </button>
+                            </Button>
                           </div>
                         )}
                       </FieldArray>
