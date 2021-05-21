@@ -61,21 +61,22 @@ export default function Login() {
       >
         <div className="container">
           <h3>Sign in</h3>
-          <div className="row loginForm">
+          <div className="loginForm">
             <Form>
               <div className="loginField">
-                Email:
-                <Field name="email" type="email" placeholder="Email..." />
+                <div><strong>Email</strong></div>
+                <Field className="inputField" name="email" type="email" placeholder="Email..." />
               </div>
               <div className="loginField">
-                Password:
+              <div><strong>Password</strong></div>
                 <Field
+                className="inputField"
                   name="password"
                   type="password"
                   placeholder="Password..."
                 />
               </div>
-              <Button variant="primary" size="lg" type="submit">
+              <Button className="loginbtn" variant="primary" size="lg" type="submit">
                 Sign in
               </Button>
             </Form>

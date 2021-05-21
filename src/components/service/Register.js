@@ -48,15 +48,15 @@ export default function Register() {
       >
         <div className="container">
           <h3>Register</h3>
-          <div className="row registerForm">
+          <div className="registerForm">
             <Form>
               <div className="registerField">
-                Email:
+              <div><strong>Email</strong></div>
                 <Field className="inputField" name="email" type="email" placeholder="Email..." />
               </div>
               <div className="registerField">
                 <div className="registerField">
-                Firstname:
+                <div><strong>Firstname</strong></div>
                 <Field
                 className="inputField"
                   name="firstName"
@@ -65,13 +65,13 @@ export default function Register() {
                 />
                 </div>
                 <div className="registerField">
-                Lastname:
+                <div><strong>Lastname</strong></div>
                 <Field className="inputField" name="lastName" type="text" placeholder="Lastname..." />
                 </div>
               </div>
               <div className="registerField">
                 <div className="registerField">
-                Password:
+                <div><strong>Password</strong></div>
                 <Field
                 className="inputField"
                   name="password"
@@ -80,7 +80,7 @@ export default function Register() {
                 />
                 </div>
                 <div className="registerField">
-                Confirm password: 
+                <div><strong>Confirm password</strong></div>
                 <Field
                 className="inputField"
                   name="confirmPassword"
@@ -90,17 +90,17 @@ export default function Register() {
                 </div>
               </div>
               <div className="registerField">
-                Birthdate:
+              <div><strong>Birthdate</strong></div>
                 <Field className="inputField" name="birthDate" type="date" />
               </div>
               <div className="registerField">
-                Select your gender:
+              <div><strong>Select your gender</strong></div>
                 <Field className="inputField" as="select" name="genderID">
                   <option value="1">Male</option>
                   <option value="2">Female</option>
                 </Field>
               </div>
-              <Button variant="primary" size="lg" type="submit">
+              <Button className="registerbtn" variant="primary" size="lg" type="submit">
                 Register
               </Button>
             </Form>

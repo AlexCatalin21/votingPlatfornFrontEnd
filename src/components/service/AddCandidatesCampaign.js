@@ -5,8 +5,6 @@ import swal from "sweetalert";
 import { Button } from "react-bootstrap";
 
 export default function AddCandidatesCampaign() {
-
-
   //create file to store url
   const addCampaign = (values) => {
     axios
@@ -34,7 +32,7 @@ export default function AddCandidatesCampaign() {
           campaignTypeId: 1,
           startDate: "",
           expireDate: "",
-          ownerUserId: "",
+          ownerUserId: window.sessionStorage.getItem("userId"),
           password: "",
           confirmedPassword: "",
           candidateDtoList: [
@@ -51,56 +49,78 @@ export default function AddCandidatesCampaign() {
       >
         {({ values }) => (
           <div className="container">
-            <div className="row">
-              <div className="col-md-10 mx-auto">
-                <Form className="addCampaignForm">
-                  <div className="form-group row">
-                    <div className="col-sm-6">
-                      <label>Campaign name:</label>
-                      <Field className="inputField" name="name" placeholder="Campaign name" />
+            <div className="addCampaignForm">
+              <div>
+                <Form>
+                  <div>
+                    <div>
+                      <strong>Campaign name</strong>
                     </div>
-                    <div className="col-sm-6">
-                      <label>Campaign description:</label>
-                      <Field
+                    <Field
                       className="inputField"
-                        name="description"
-                        placeholder="Campaign description"
+                      name="name"
+                      placeholder="Campaign name"
+                    />
+                  </div>
+                  <div>
+                    <div>
+                      <strong>Campaign description</strong>
+                    </div>
+                    <Field
+                      className="inputField"
+                      name="description"
+                      placeholder="Campaign description"
+                    />
+                  </div>
+                  <div>
+                    <div>
+                      <div>
+                        <strong>Start date</strong>
+                      </div>
+                      <Field
+                        className="inputField"
+                        name="startDate"
+                        type="datetime-local"
+                      />
+                    </div>
+                    <div>
+                      <div>
+                        <strong>Expire date</strong>
+                      </div>
+                      <Field
+                        className="inputField"
+                        name="expireDate"
+                        type="datetime-local"
                       />
                     </div>
                   </div>
-                  <div className="form-group row">
-                    <div className="col-sm-6 text-color">
-                      Start date :
-                      <Field className="inputField" name="startDate" type="datetime-local" />
-                    </div>
-                    <div className="col-sm-6 text-color">
-                      Expire date :
-                      <Field className="inputField" name="expireDate" type="datetime-local" />
-                    </div>
-                  </div>
-                  <div className="form-group row">
-                    <div className="col-sm-6">
-                      <label>Password:</label>
-                      <Field
-                      className="inputField"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                      />
-                    </div>
 
-                    <div className="col-sm-6">
-                      <label>Confirm password:</label>
-                      <Field
-                      className="inputField"
-                        type="password"
-                        name="confirmedPassword"
-                        placeholder="Confirm password"
-                      />
+                  <div>
+                    <div>
+                      <strong>Password</strong>
                     </div>
+                    <Field
+                      className="inputField"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                    />
                   </div>
-                  <div className="form-group row">
-                    <div className="col-sm">
+
+                  <div>
+                    <div>
+                      <strong>Confirm passowrd</strong>
+                    </div>
+                    <Field
+                      className="inputField"
+                      type="password"
+                      name="confirmedPassword"
+                      placeholder="Confirm password"
+                    />
+                  </div>
+
+                  <div>
+                    <div>
                       <FieldArray name="candidateDtoList">
                         {({ push }) => (
                           <div>
@@ -113,59 +133,74 @@ export default function AddCandidatesCampaign() {
                               return (
                                 <div key={index}>
                                   <h5 className="mt-3 text-color">Candidate</h5>
-                                  <div className="form-group row">
-                                    <div className="col-sm-6">
-                                      <label>Candidate first name: </label>
+                                  <div>
+                                    <div>
+                                      <div>
+                                        <strong>Candidate firstname</strong>
+                                      </div>
                                       <Field
-                                      className="inputField"
+                                        className="inputField"
                                         type="text"
                                         name={firstName}
                                         placeholder="Candidate first name"
                                       />
                                     </div>
 
-                                    <div className="col-sm-6">
-                                      <label>Candidate last name: </label>
+                                    <div>
+                                      <div>
+                                        <strong>Candidate lastname</strong>
+                                      </div>
                                       <Field
-                                      className="inputField"
+                                        className="inputField"
                                         type="text"
                                         name={lastName}
                                         placeholder="Candidate last name"
                                       />
                                     </div>
                                   </div>
-                                  <div className="form-group row">
-                                    <div className="col-sm-6">
-                                      <label>Candidate description:</label>
+                                  <div>
+                                    <div>
+                                      <div>
+                                        <strong>Candidate description</strong>
+                                      </div>
                                       <Field
-                                      className="inputField"
+                                        className="inputField"
                                         type="text"
                                         name={candidateDescription}
                                         placeholder="Candidate description"
                                       />
                                     </div>
-                                    <div className="col-sm-6">
-                                      <label>Candidate electoral speech:</label>
+                                    <div>
+                                      <div>
+                                        <strong>
+                                          Candidate electoral speech
+                                        </strong>
+                                      </div>
                                       <Field
-                                      className="inputField"
+                                        className="inputField"
                                         type="text"
                                         name={electoralSpeech}
                                         placeholder="Electoral speech"
                                       />
                                     </div>
                                   </div>
-                                  <div className = "form-group row">
-                                    <div className = "col-sm-6">
-                                    Birthdate:
-                                    <Field
-                                    className="inputField" type="date" name={birthdate} />
-                                  </div>
+                                  <div>
+                                    <div>
+                                      <div>
+                                        <strong>Birthdate</strong>
+                                      </div>
+                                      <Field
+                                        className="inputField"
+                                        type="date"
+                                        name={birthdate}
+                                      />
+                                    </div>
                                   </div>
                                 </div>
                               );
                             })}
                             <Button
-                              className="btn_1"
+                              className="addCandidatebtn btn_1"
                               type="button"
                               onClick={() =>
                                 push({
@@ -184,7 +219,8 @@ export default function AddCandidatesCampaign() {
                       </FieldArray>
                     </div>
                   </div>
-                  <input className="btn_1" type="submit"></input>
+
+                  <input className="btn_2 loginbtn" type="submit"></input>
                 </Form>
               </div>
             </div>

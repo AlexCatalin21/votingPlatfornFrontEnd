@@ -9,6 +9,8 @@ import Register from "./components/service/Register";
 import Login from "./components/service/Login";
 import Logout from "./components/service/Logout";
 import CampaignList from "./components/layout/CampaignList";
+import Campaign from "./components/layout/Campaign"
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -22,7 +24,9 @@ function App() {
         <Route path="/login" component={Login}></Route>
         <Route path="/logout" component={Logout}></Route>
         <Route path="/campaigns" component={CampaignList}></Route>
+        <Route path="/campaign-detail/:id" component={Campaign}></Route>
       </Switch>
+      <Footer/>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Nav } from "react-bootstrap";
+import logo from "../../resources/logo.png";
 
 export default function AppNavbar() {
   const [userIsLogin, setIsLogin] = useState(false);
@@ -9,14 +10,15 @@ export default function AppNavbar() {
     if (window.sessionStorage.getItem("userEmail")) {
       setIsLogin(true);
       setFirstName(window.sessionStorage.getItem("firstName"));
-      
     }
   }, []);
 
   return (
     <div>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">VotingPlat</Navbar.Brand>
+      <Navbar bg="success" expand="lg">
+        <Navbar.Brand href="/">
+          <img src={logo} alt="logo" style={logoStyle} />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
@@ -42,3 +44,7 @@ export default function AppNavbar() {
     </div>
   );
 }
+const logoStyle = {
+  width: "90%",
+  height: "70%",
+};
