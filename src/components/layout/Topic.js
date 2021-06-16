@@ -15,7 +15,7 @@ export default function Topic(props) {
         <label className="fieldLabel">Votes:</label>
         {props.noVotes}
       </div>
-      <VoteTopic id={props.id}/>
+      <VoteTopic id={props.id} campaignId={props.campaignId} votePeriodCheck={props.votePeriodCheck}/>
     </div>
   );
 }

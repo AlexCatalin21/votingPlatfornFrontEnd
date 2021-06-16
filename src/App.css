@@ -158,3 +158,25 @@
 .accessButton{
   margin-left: 5px;
 }
+
+.voteBtn{
+  margin-bottom: 5px;
+}
+
+.periodErrorMessage{
+  color: red;
+}
+
+.errorMessage{
+  color: red;
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}

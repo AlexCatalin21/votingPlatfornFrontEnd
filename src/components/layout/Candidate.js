@@ -1,7 +1,17 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import VoteCandidate from '../service/VoteCandidate'
 
 export default function Candidate(props) {
+
+  const [noVotes,setNoVotes] =  useState("")
+
+  useEffect(() => {
+    setNoVotes(props.noVotes)
+    console.log(props.noVotes)
+    }
+  , [props.noVotes])
+
+
   return (
     <div className="candidateInfo">
       <h4>
@@ -24,7 +34,7 @@ export default function Candidate(props) {
         {props.noVotes}
       </div>
       <div>
-        <VoteCandidate id={props.id} />
+        <VoteCandidate id={props.id} campaignId={props.campaignId} votePeriodCheck={props.votePeriodCheck}/>
       </div>
     </div>
   );

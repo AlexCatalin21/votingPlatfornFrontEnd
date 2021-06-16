@@ -27,7 +27,7 @@ export default function AppNavbar() {
             {userIsLogin ? (
               <Nav.Link href="/logout">Logout</Nav.Link>
             ) : (
-              <Nav.Link href="/login">Login</Nav.Link>
+              <Nav.Link href="/login">Sign in</Nav.Link>
             )}
           </Nav>
           <Nav inline>

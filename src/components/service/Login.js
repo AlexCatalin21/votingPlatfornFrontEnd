@@ -5,7 +5,6 @@ import axios from "axios";
 import swal from "sweetalert";
 
 export default function Login() {
-
   //create file to store url
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
@@ -23,6 +22,26 @@ export default function Login() {
           window.sessionStorage.setItem("userBirthdate", res.data.birthdate);
         });
     }
+  };
+
+  const validateEmail = (value) => {
+    let error;
+    if (!value) {
+      error = "Please insert an email adress.";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
+      error = "Invalid email address";
+    }
+    return error;
+  };
+
+  const validatePassword = (value) => {
+    let error;
+    if (!value) {
+      error = "Please insert a password.";
+    } else if (value.length < 6) {
+      error = "You must provide a minimum 6 characters password.";
+    }
+    return error;
   };
 
   const handleSubmit = (values) => {
@@ -46,7 +65,15 @@ export default function Login() {
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response.data);
+        if ((err.response.data = "Invalid credentials")) {
+          swal({
+            title: "Something went wrong!",
+            text: "Invalid credentials!",
+            icon: "error",
+            button: { text: "OK", className: "btn_1" },
+          });
+        }
       });
   };
 
@@ -59,29 +86,56 @@ export default function Login() {
         }}
         onSubmit={handleSubmit}
       >
-        <div className="container">
-          <h3>Sign in</h3>
-          <div className="loginForm">
-            <Form>
-              <div className="loginField">
-                <div><strong>Email</strong></div>
-                <Field className="inputField" name="email" type="email" placeholder="Email..." />
-              </div>
-              <div className="loginField">
-              <div><strong>Password</strong></div>
-                <Field
-                className="inputField"
-                  name="password"
-                  type="password"
-                  placeholder="Password..."
-                />
-              </div>
-              <Button className="loginbtn" variant="primary" size="lg" type="submit">
-                Sign in
-              </Button>
-            </Form>
+        {({ errors, touched, isValidating }) => (
+          <div className="container">
+            <h3>Sign in</h3>
+            <div className="loginForm">
+              <Form>
+                <div className="loginField">
+                  <div>
+                    <strong>Email</strong>
+                  </div>
+                  <Field
+                    className="inputField"
+                    name="email"
+                    type="email"
+                    placeholder="Email..."
+                    validate={validateEmail}
+                  />
+                  {errors.email && touched.email && (
+                    <div className="errorMessage">{errors.email}</div>
+                  )}
+                </div>
+                <div className="loginField">
+                  <div>
+                    <strong>Password</strong>
+                  </div>
+                  <Field
+                    className="inputField"
+                    name="password"
+                    type="password"
+                    placeholder="Password..."
+                    validate={validatePassword}
+                  />
+                  {errors.password && touched.password && (
+                    <div className="errorMessage">{errors.password}</div>
+                  )}
+                </div>
+                <Button
+                  className="loginbtn"
+                  variant="primary"
+                  size="lg"
+                  type="submit"
+                >
+                  Sign in
+                </Button>
+                <div>
+                  You don't have an account? <a href="/register">Register!</a>
+                </div>
+              </Form>
+            </div>
           </div>
-        </div>
+        )}
       </Formik>
     </div>
   );

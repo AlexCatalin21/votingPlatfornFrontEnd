@@ -15,6 +15,16 @@ export default function Campaign(props) {
   const campaignId = props.location.pathname.split("/")[2];
   const campaignApi = `http://localhost:8080/api/v1/campaign/get-campaign/${campaignId}`;
 
+  const votePeriodCheck = (startDate, expireDate) => {
+    if (
+      Date.now() < Date.parse(startDate) ||
+      Date.now() > Date.parse(expireDate)
+    ) {
+      return <div className="periodErrorMessage">Out of voting period!</div>;
+    }
+    return "Accept";
+  };
+
   useEffect(() => {
     async function fetchData() {
       let response = await fetch(campaignApi);
@@ -37,7 +47,6 @@ export default function Campaign(props) {
         setOwnerFirstName(data.ownerUser.firstName);
         setOwnerLastName(data.ownerUser.lastName);
         console.log(data);
-        console.log(data.topics);
       } else {
         console.log("Fail");
       }
@@ -51,6 +60,7 @@ export default function Campaign(props) {
       <div>
         Start: {startDate} {"-"} End: {expireDate}
       </div>
+      <div>{votePeriodCheck(startDate, expireDate)}</div>
       <div>
         Created by {ownerFirstName} {ownerLastName}{" "}
       </div>
@@ -68,6 +78,8 @@ export default function Campaign(props) {
                   electoralSpeech={candidate.electoralSpeech}
                   noVotes={candidate.noVotes}
                   id={candidate.id}
+                  campaignId={campaignId}
+                  votePeriodCheck={votePeriodCheck(startDate,expireDate)}
                 />
               );
             })}
@@ -81,6 +93,8 @@ export default function Campaign(props) {
                   topicDescription={topic.description}
                   id={topic.id}
                   noVotes={topic.noVotes}
+                  campaignId={campaignId}
+                  votePeriodCheck={votePeriodCheck(startDate,expireDate)}
                 />
               );
             })}

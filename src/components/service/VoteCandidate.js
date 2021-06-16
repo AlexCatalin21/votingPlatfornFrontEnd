@@ -1,41 +1,53 @@
 import React,{useState} from "react";
 import axios from "axios";
-import swal from "sweetalert";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import swal from 'sweetalert';
 
 export default function VoteCandidate(props) {
   const [show, setShow] = useState(false);
+  const [voted,setVoted] = useState(false)
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+  const votePeriodCheck = () =>{
+    if(props.votePeriodCheck === "Accept"){
+      return (<Button className="voteBtn" variant="primary" onClick={handleShow}>
+      Vote
+    </Button>)
+    }
+    return (<div className="periodErrorMessage">Out of voting period!</div>)
+  }
+
   const handleSubmit = () => {
-    
     axios
       .put("http://localhost:8080/api/v1/candidates/vote", {
-        id: `${props.id}`,
+        id: `${props.id}`, voterId: window.sessionStorage.getItem("userId"), campaignId :`${props.campaignId}`
       })
       .then((res) => {
+        console.log(res)
         if (res.status === 200) {
-          console.log(props.id)
-          swal({
-            title: "Good job!",
-            text: "Vote registered",
-            icon: "success",
-            button: { text: "OK", className: "btn_1" },
-          });
+          setVoted(true);
+          window.location.href=`http://localhost:3000/campaign-detail/${props.campaignId}`
         }
-        else{console.log("ERROR")}
+        else if(res.status === 500){
+          console.log("This user already voted!")
+          swal({
+            title: "Error",
+            text: "You already voted!",
+            icon: "error",
+            button: { text: "OK", className: "btn_1" },
+          })
+        }
       })
       .then(setShow(false));
   };
 
   return (
     <div>
-      <Button variant="primary" onClick={handleShow}>
-        Vote
-      </Button>
+      {votePeriodCheck()}
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
