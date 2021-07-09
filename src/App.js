@@ -11,6 +11,7 @@ import Logout from "./components/service/Logout";
 import CampaignList from "./components/layout/CampaignList";
 import Campaign from "./components/layout/Campaign"
 import Footer from "./components/layout/Footer";
+import MyCampaigns from './components/layout/MyCampaigns'
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/logout" component={Logout}></Route>
         <Route path="/campaigns" component={CampaignList}></Route>
         <Route path="/campaign-detail/:id" component={Campaign}></Route>
+        <Route path="/my-campaigns" component={MyCampaigns}></Route>
       </Switch>
       <Footer/>
     </div>

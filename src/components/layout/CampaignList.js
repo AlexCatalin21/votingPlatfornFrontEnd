@@ -19,7 +19,6 @@ export default function CampaignList() {
   };
   const [searchQuery, setSearchQuery] = useState(query || "");
   const filteredCampaigns = filterCampaigns(campaigns, searchQuery);
-  
 
   // create file to store the url
   const allCampaignsApi = "http://localhost:8080/api/v1/campaign/get-campaigns";
@@ -37,10 +36,12 @@ export default function CampaignList() {
 
   return (
     <div className="container">
-      <SearchCampaign
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-      />
+      <div className="searchTab">
+        <SearchCampaign
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+        />
+      </div>
       <div className="row">
         {filteredCampaigns.map((campaign, index) => {
           return (

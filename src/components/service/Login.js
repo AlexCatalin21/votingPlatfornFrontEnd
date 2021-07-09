@@ -65,7 +65,6 @@ export default function Login() {
         }
       })
       .catch((err) => {
-        console.log(err.response.data);
         if ((err.response.data = "Invalid credentials")) {
           swal({
             title: "Something went wrong!",

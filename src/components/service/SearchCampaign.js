@@ -1,5 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 export default function SearchCampaign({ searchQuery, setSearchQuery }) {
   const history = useHistory();
@@ -21,8 +22,10 @@ export default function SearchCampaign({ searchQuery, setSearchQuery }) {
           placeholder="Search campaign"
           name="s"
         />
-        <button type="submit">Search</button>
+        <Button className="accessButton" type="submit" variant="primary">Search</Button>
       </form>
     </div>
   );
 }
+
+

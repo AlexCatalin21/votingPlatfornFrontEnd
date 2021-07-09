@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Candidate from "./Candidate";
 import Topic from "./Topic";
+import Winner from "./Winner";
 
 export default function Campaign(props) {
   const [campaign, setCampaign] = useState("");
+  const [voters, setVoters] = useState([]);
   const [campaignType, setCampaignType] = useState("");
   const [startDate, setStartDate] = useState("");
   const [expireDate, setExpireDate] = useState("");
@@ -11,7 +13,9 @@ export default function Campaign(props) {
   const [topicsList, setTopicsList] = useState([]);
   const [ownerFirstName, setOwnerFirstName] = useState("");
   const [ownerLastName, setOwnerLastName] = useState("");
+  const [ownerId, setOwnerId] = useState("");
 
+  const loggedInUserId = window.sessionStorage.getItem("userId")
   const campaignId = props.location.pathname.split("/")[2];
   const campaignApi = `http://localhost:8080/api/v1/campaign/get-campaign/${campaignId}`;
 
@@ -24,6 +28,13 @@ export default function Campaign(props) {
     }
     return "Accept";
   };
+
+  const checkWinnerTime = (expireDate) => {
+    if(Date.now() > Date.parse(expireDate)){
+      return <Winner campaignId={campaignId}></Winner>
+    }
+  }
+
 
   useEffect(() => {
     async function fetchData() {
@@ -46,13 +57,26 @@ export default function Campaign(props) {
         setCampaignType(data.type.type);
         setOwnerFirstName(data.ownerUser.firstName);
         setOwnerLastName(data.ownerUser.lastName);
-        console.log(data);
+        setOwnerId(data.ownerUser.id);
+        setVoters(data.voters);
       } else {
         console.log("Fail");
       }
     }
     fetchData();
   }, [campaignApi]);
+
+  const displayVoters = (userId,ownerId,voters) => {
+    if(userId === ownerId){
+      <div>
+        {voters.map((voter) => {
+          return voter.email;
+        })}</div>
+    }
+    else{
+      <div>You must be the owner of campaign to see the voters!</div>
+    }
+  }
 
   return (
     <div className="container">
@@ -65,7 +89,10 @@ export default function Campaign(props) {
         Created by {ownerFirstName} {ownerLastName}{" "}
       </div>
       <div className="campaignDescription">{campaign.description}</div>
+      {checkWinnerTime(expireDate)}
+      
       <div className="campaignCandidates">
+        
         {campaignType === "Candidate" ? (
           <div>
             {candidatesList.map((candidate, index) => {
@@ -79,7 +106,7 @@ export default function Campaign(props) {
                   noVotes={candidate.noVotes}
                   id={candidate.id}
                   campaignId={campaignId}
-                  votePeriodCheck={votePeriodCheck(startDate,expireDate)}
+                  votePeriodCheck={votePeriodCheck(startDate, expireDate)}
                 />
               );
             })}
@@ -94,12 +121,20 @@ export default function Campaign(props) {
                   id={topic.id}
                   noVotes={topic.noVotes}
                   campaignId={campaignId}
-                  votePeriodCheck={votePeriodCheck(startDate,expireDate)}
+                  votePeriodCheck={votePeriodCheck(startDate, expireDate)}
                 />
               );
             })}
           </div>
         )}
+      </div>
+      <div>
+        Voters:
+        {loggedInUserId === ownerId ? (<div>
+        {voters.map((voter) => {
+          return voter.email;
+        })}</div>):(<div>You must be the owner of campaign to see the voters!</div>)}
+        
       </div>
     </div>
   );

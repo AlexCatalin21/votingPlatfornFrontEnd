@@ -18,6 +18,15 @@ export default function Register() {
     }
     return error;
   };
+
+  const validateRequiredField = (value) => {
+    let error;
+    if(!value){
+      error= "Please complete the field."
+    }
+    return error;
+  };
+
   const validatePassword = (value) => {
     let error;
     if (!value) {
@@ -169,16 +178,18 @@ export default function Register() {
                   <div>
                     <strong>Birthdate</strong>
                   </div>
-                  <Field className="inputField" name="birthDate" type="date" />
+                  <Field className="inputField" name="birthDate" type="date" validate={validateRequiredField} />
+                  {errors.birthDate && touched.birthDate && <div className="errorMessage">{errors.birthDate}</div>}
                 </div>
                 <div className="registerField">
                   <div>
                     <strong>Select your gender</strong>
                   </div>
-                  <Field className="inputField" as="select" name="genderID">
+                  <Field className="inputField" as="select" name="genderID" validate={validateRequiredField}>
                     <option value="1">Male</option>
                     <option value="2">Female</option>
                   </Field>
+                  {errors.genderID && touched.genderID && <div className="errorMessage">{errors.genderID}</div>}
                 </div>
                 <Button
                   className="registerbtn"

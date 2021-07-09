@@ -25,7 +25,10 @@ export default function AppNavbar() {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/campaigns">Campaigns</Nav.Link>
             {userIsLogin ? (
-              <Nav.Link href="/logout">Logout</Nav.Link>
+              <Nav>
+                <Nav.Link href="/my-campaigns">My Campaigns</Nav.Link>
+                <Nav.Link href="/logout">Logout</Nav.Link>
+              </Nav>
             ) : (
               <Nav.Link href="/login">Sign in</Nav.Link>
             )}
