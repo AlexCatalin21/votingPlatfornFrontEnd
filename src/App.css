@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: Roboto, Arial, sans-serif;
+  font-family: "BioRhyme", serif !important;
 }
 
 .App-logo {
@@ -140,7 +140,7 @@
 }
 
 .card{
-  box-shadow: 10px 10px grey;
+
 }
 
 .loginbtn{
@@ -184,4 +184,32 @@
 
 .searchTab{
   margin-bottom: 20px;
+}
+
+body{
+  background-image: url(/home/alex/Documents/JAVA-ADVANCED/voting-platform/vp-front-end/vpfrontend/src/resources/background.png);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  font-family: "BioRhyme", serif !important;
+  
+}
+
+.welcomeMessage{
+  font-style: oblique;
+  text-shadow: 2px 2px 5px grey;
+  font-size: 70px;
+}
+
+.homePageDescription{
+  color: white;
+  text-shadow: 2px 2px 5px grey;
+  font-style: italic;
+}
+
+
+.homePage{
+  display: flex !important;
 }
