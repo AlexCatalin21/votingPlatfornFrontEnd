@@ -15,7 +15,7 @@ export default function AppNavbar() {
 
   return (
     <div>
-      <Navbar bg="success" expand="lg">
+      <Navbar bg="light" expand="lg">
         <Navbar.Brand href="/">
           <img src={logo} alt="logo" style={logoStyle} />
         </Navbar.Brand>

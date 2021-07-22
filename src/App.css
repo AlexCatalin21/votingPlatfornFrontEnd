@@ -200,16 +200,52 @@ body{
 .welcomeMessage{
   font-style: oblique;
   text-shadow: 2px 2px 5px grey;
-  font-size: 70px;
+  font-size: 90px;
+  color: whitesmoke;
 }
 
 .homePageDescription{
   color: white;
   text-shadow: 2px 2px 5px grey;
   font-style: italic;
+  font-size: 40px;
 }
 
 
 .homePage{
   display: flex !important;
+  margin-left: 60px !important;
+  margin-right: 60px !important;
+  margin-bottom: 31px !important;
+}
+
+.welcomeDescription{
+  margin-top: 120px;
+  margin-bottom: 40px !important;
+}
+
+.createCampaigns{
+  color:white;
+  margin-top: 120px;
+  font-style: italic;
+}
+
+.createCamapignsTitle{
+  font-size: 80px;
+  text-shadow: 2px 2px 5px grey;
+}
+.createCampaignDescription{
+  font-size: 30px;
+  text-shadow: 2px 2px 5px grey;
+}
+
+.zoom:hover {
+  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.zoom{
+  transition: transform 0.5s;
+}
+a:hover{
+  text-decoration: none;
 }
