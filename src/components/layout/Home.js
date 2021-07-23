@@ -1,13 +1,34 @@
-import React from "react";
-import Card from "react-bootstrap/Card";
+import React, {useState,useEffect} from "react";
+import Button from "react-bootstrap/Button";
 import topic from "../../resources/topic.png";
 import candidate from "../../resources/candidate.png";
 import HomeCard from "./HomeCard.js";
 
 export default function Home() {
+
+  const [userIsLoggedIn, setUserIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    if (window.sessionStorage.getItem("userEmail")) {
+      setUserIsLoggedIn(true);
+    }
+  }, []);
+
+  
+
+
+  const createCandidatesCampaign = () => {
+    window.location.href="/add-candidates-campaign"
+  }
+
+  const createTopicCampaign = () => {
+    window.location.href="/add-topics-campaign"
+  }
+
+
   return (
     <div className="homePage">
-      <div className="col-sm-6 welcomeDescription">
+      <div className=" welcomeDescription">
         <h1 className="welcomeMessage">Welcome!</h1>
         <h3 className="homePageDescription">
           <p>
@@ -17,37 +38,30 @@ export default function Home() {
           </p>
           <p>
             {" "}
-            Are you the manager of a company and want to vote for employee of
-            the month?
-          </p>
-          <p>
-            {" "}
             On VotingPlat you can make all these decisions and more by creating
             voting campaigns and inviting only the people you want to vote in
             the campaign you create.
           </p>
         </h3>
       </div>
-      <div className="col-sm-6 createCampaigns">
-        <h1 className="createCamapignsTitle">Start making decisions now!</h1>
-        <div className="createCampaignDescription">
-          <div>
-            Create your candidates campaign, start adding peoples to be voted
-            and invite other users to vote!
-          </div>
-          <div className="zoom">
-            <a href="/add-candidates-campaign" >
-              Create candidates campaign
-            </a>
-          </div>
-          <h2>OR</h2>
-          <div>
+
+      <div className="row createCampaigns">
+        <div className="candidatesHome col-sm-5">
+          <h1>Candidates</h1>
+          <h4>
+            Create your candidates campaign, start adding people to be voted and
+            invite other users to vote!
+          </h4>
+          {userIsLoggedIn ? (<Button className="zoom" onClick={createCandidatesCampaign}>Create candidates campaign</Button>):(<div>You have to <a href="\login"> sign in </a> to create a campaign </div>)}
+        </div>
+        <div className="col-sm-2"></div>
+        <div className="topicsHome col-sm-5">
+          <h1>Topics</h1>
+          <h4>
             Create your topics campaign, start adding topics to be voted and
             invite other users to vote!
-          </div>
-          <div className="zoom">
-            <a href="/add-topics-campaign">Create topics campaign</a>
-          </div>
+          </h4>
+          {userIsLoggedIn ? (<Button className="zoom" onClick={createTopicCampaign}>Create topics campaign</Button>):(<div>You have to <a href="\login"> sign in </a> to create a campaign </div>)}
         </div>
       </div>
 

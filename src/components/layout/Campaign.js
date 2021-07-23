@@ -59,6 +59,7 @@ export default function Campaign(props) {
         setOwnerLastName(data.ownerUser.lastName);
         setOwnerId(data.ownerUser.id);
         setVoters(data.voters);
+        console.log(data)
       } else {
         console.log("Fail");
       }
@@ -79,7 +80,7 @@ export default function Campaign(props) {
   }
 
   return (
-    <div className="container">
+    <div className="container campaignPage">
       <h3>{campaign.name}</h3>
       <div>
         Start: {startDate} {"-"} End: {expireDate}
@@ -98,9 +99,9 @@ export default function Campaign(props) {
             {candidatesList.map((candidate, index) => {
               return (
                 <Candidate
-                  firstName={candidate.first_name}
-                  lastName={candidate.last_name}
-                  birthDate={candidate.birth_date.split("T")[0]}
+                  firstName={candidate.firstName}
+                  lastName={candidate.lastName}
+                  birthDate={candidate.birthDate.split("T")[0]}
                   description={candidate.description}
                   electoralSpeech={candidate.electoralSpeech}
                   noVotes={candidate.noVotes}

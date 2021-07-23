@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  font-family: "BioRhyme", serif !important;
+  font-family: sans-serif !important;
 }
 
 .App-logo {
@@ -193,59 +193,81 @@ body{
   -o-background-size: cover;
   background-size: cover;
 
-  font-family: "BioRhyme", serif !important;
+  font-family: sans-serif !important;
   
 }
 
 .welcomeMessage{
-  font-style: oblique;
   text-shadow: 2px 2px 5px grey;
   font-size: 90px;
   color: whitesmoke;
+  text-align: center;
 }
+
 
 .homePageDescription{
   color: white;
   text-shadow: 2px 2px 5px grey;
-  font-style: italic;
   font-size: 40px;
 }
 
 
 .homePage{
-  display: flex !important;
-  margin-left: 60px !important;
-  margin-right: 60px !important;
+  margin-left: 100px !important;
+  margin-right: 100px !important;
   margin-bottom: 31px !important;
 }
 
 .welcomeDescription{
   margin-top: 120px;
-  margin-bottom: 40px !important;
+  margin-bottom: 160px !important;
+  display: block !important;
+  background:rgba(102, 102, 102, 0.5);
 }
 
 .createCampaigns{
   color:white;
   margin-top: 120px;
-  font-style: italic;
+  display: flex !important;
 }
 
 .createCamapignsTitle{
   font-size: 80px;
   text-shadow: 2px 2px 5px grey;
 }
-.createCampaignDescription{
-  font-size: 30px;
-  text-shadow: 2px 2px 5px grey;
+.candidatesHome{
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.candidatesHome:hover{
+  transform: scale(1.1);
+}
+
+.topicsHome{
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  margin-bottom: 30px;
+}
+.topicsHome:hover{
+  transform: scale(1.1);
 }
 
 .zoom:hover {
-  transform: scale(1.1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+  transform: scale(1.2);
 }
 
 .zoom{
-  transition: transform 0.5s;
+  transition: transform 0.7s;
 }
 a:hover{
   text-decoration: none;
+}
+
+.campaignPage{
+  color:white;
+  margin-left: 50px !important;
+  margin-right: 50px !important;
+  width: inherit !important;
+  text-align: left !important;
 }
