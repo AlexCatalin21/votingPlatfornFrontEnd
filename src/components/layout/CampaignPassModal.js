@@ -69,14 +69,17 @@ export default function CampaignPassModal(props) {
           >
             <Form>
               <label className="fieldLabel">Campaign password:</label>
+              <div className="inputFieldModal">
               <Field
                 name="password"
                 type="password"
+                className="form-control"
                 placeholder="Password..."
               />
               <Button className= "accessButton" variant="primary" type="submit">
                 Submit
               </Button>
+              </div>
             </Form>
           </Formik>
         </Modal.Body>

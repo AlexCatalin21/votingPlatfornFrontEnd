@@ -14,18 +14,21 @@ export default function SearchCampaign({ searchQuery, setSearchQuery }) {
         <label htmlFor="header-search">
           <span className="visually-hidden">Search campaign</span>
         </label>
-        <input
-          value={searchQuery}
-          onInput={(e) => setSearchQuery(e.target.value)}
-          type="text"
-          id="header-search"
-          placeholder="Search campaign"
-          name="s"
-        />
-        <Button className="accessButton" type="submit" variant="primary">Search</Button>
+        <div className="searchGroup">
+          <input
+            value={searchQuery}
+            onInput={(e) => setSearchQuery(e.target.value)}
+            type="text"
+            id="header-search"
+            placeholder="Search campaign"
+            name="s"
+            className="form-control searchField"
+          />
+          <Button className="accessButton" type="submit" variant="primary">
+            Search
+          </Button>
+        </div>
       </form>
     </div>
   );
 }
-
-

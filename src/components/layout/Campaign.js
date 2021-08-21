@@ -90,12 +90,12 @@ export default function Campaign(props) {
         Created by {ownerFirstName} {ownerLastName}{" "}
       </div>
       <div className="campaignDescription">{campaign.description}</div>
-      {checkWinnerTime(expireDate)}
+      {/* {checkWinnerTime(expireDate)} */}
       
-      <div className="campaignCandidates">
+    
         
         {campaignType === "Candidate" ? (
-          <div>
+          <div className="row candidates">
             {candidatesList.map((candidate, index) => {
               return (
                 <Candidate
@@ -128,7 +128,7 @@ export default function Campaign(props) {
             })}
           </div>
         )}
-      </div>
+      
       <div>
         Voters:
         {loggedInUserId === ownerId ? (<div>

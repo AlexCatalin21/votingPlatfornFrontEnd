@@ -52,43 +52,45 @@ export default function AddCandidatesCampaign() {
             <div className="addCampaignForm">
               <div>
                 <Form>
-                  <div>
-                    <div>
-                      <strong>Campaign name</strong>
-                    </div>
-                    <Field
-                      className="inputField"
-                      name="name"
-                      placeholder="Campaign name"
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <strong>Campaign description</strong>
-                    </div>
-                    <Field
-                      className="inputField"
-                      name="description"
-                      placeholder="Campaign description"
-                    />
-                  </div>
-                  <div>
-                    <div>
-                      <div>
-                        <strong>Start date</strong>
-                      </div>
+                  <div className="row">
+                    <div className="col">
+                      <label for="name" className="form-label">
+                        Campaign name
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
+                        name="name"
+                        placeholder="Campaign name"
+                      />
+                    </div>
+                    <div className="col">
+                      <label for="description" className="form-label">
+                        Campaign description
+                      </label>
+                      <Field
+                        className="form-control"
+                        name="description"
+                        placeholder="Campaign description"
+                      />
+                    </div>
+                  </div>
+                  <div className="row">
+                    <div className="col">
+                      <label for="startDate" className="form-label">
+                        Start date
+                      </label>
+                      <Field
+                        className="form-control"
                         name="startDate"
                         type="datetime-local"
                       />
                     </div>
-                    <div>
-                      <div>
-                        <strong>Expire date</strong>
-                      </div>
+                    <div className="col">
+                      <label for="expireDate" className="form-label">
+                        Expire date
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
                         name="expireDate"
                         type="datetime-local"
                       />
@@ -96,11 +98,11 @@ export default function AddCandidatesCampaign() {
                   </div>
 
                   <div>
-                    <div>
-                      <strong>Password</strong>
-                    </div>
+                    <label for="password" className="form-label">
+                      Password
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       type="password"
                       name="password"
                       placeholder="Password"
@@ -108,11 +110,11 @@ export default function AddCandidatesCampaign() {
                   </div>
 
                   <div>
-                    <div>
-                      <strong>Confirm passowrd</strong>
-                    </div>
+                    <label for="confirmedPassword" className="form-label">
+                      Confirm passowrd
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       type="password"
                       name="confirmedPassword"
                       placeholder="Confirm password"
@@ -133,25 +135,31 @@ export default function AddCandidatesCampaign() {
                               return (
                                 <div key={index}>
                                   <h5 className="mt-3 text-color">Candidate</h5>
-                                  <div>
-                                    <div>
-                                      <div>
-                                        <strong>Candidate firstname</strong>
-                                      </div>
+                                  <div className="row">
+                                    <div className="col">
+                                      <label
+                                        for={firstName}
+                                        className="form-label"
+                                      >
+                                        Candidate firstname
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={firstName}
                                         placeholder="Candidate first name"
                                       />
                                     </div>
 
-                                    <div>
-                                      <div>
-                                        <strong>Candidate lastname</strong>
-                                      </div>
+                                    <div className="col">
+                                      <label
+                                        for={lastName}
+                                        className="form-label"
+                                      >
+                                        Candidate lastname
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={lastName}
                                         placeholder="Candidate last name"
@@ -160,24 +168,28 @@ export default function AddCandidatesCampaign() {
                                   </div>
                                   <div>
                                     <div>
-                                      <div>
-                                        <strong>Candidate description</strong>
-                                      </div>
+                                      <label
+                                        for={candidateDescription}
+                                        className="form-label"
+                                      >
+                                        Candidate description
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={candidateDescription}
                                         placeholder="Candidate description"
                                       />
                                     </div>
                                     <div>
-                                      <div>
-                                        <strong>
-                                          Candidate electoral speech
-                                        </strong>
-                                      </div>
+                                      <label
+                                        for={electoralSpeech}
+                                        className="form-label"
+                                      >
+                                        Candidate electoral speech
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={electoralSpeech}
                                         placeholder="Electoral speech"
@@ -186,11 +198,14 @@ export default function AddCandidatesCampaign() {
                                   </div>
                                   <div>
                                     <div>
-                                      <div>
-                                        <strong>Birthdate</strong>
-                                      </div>
+                                      <label
+                                        for={birthdate}
+                                        className="form-label"
+                                      >
+                                        <>Birthdate</>
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="date"
                                         name={birthdate}
                                       />
@@ -199,6 +214,7 @@ export default function AddCandidatesCampaign() {
                                 </div>
                               );
                             })}
+                            <div>
                             <Button
                               className="addCandidatebtn btn_1"
                               type="button"
@@ -212,8 +228,10 @@ export default function AddCandidatesCampaign() {
                                 })
                               }
                             >
-                              Add Another Candidate
+                              Add another candidate
                             </Button>
+                            <Button>Add candidates from file</Button>
+                            </div>
                           </div>
                         )}
                       </FieldArray>

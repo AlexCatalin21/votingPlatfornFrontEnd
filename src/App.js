@@ -1,5 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'font-awesome/css/font-awesome.min.css';
 import Home from "./components/layout/Home"
 import AppNavbar from "./components/layout/AppNavbar";
 import { Switch, Route } from "react-router-dom";

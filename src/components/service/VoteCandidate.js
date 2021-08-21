@@ -14,9 +14,9 @@ export default function VoteCandidate(props) {
 
   const votePeriodCheck = () =>{
     if(props.votePeriodCheck === "Accept"){
-      return (<Button className="voteBtn" variant="primary" onClick={handleShow}>
+      return (<button className="contact-me-btn" onClick={handleShow}>
       Vote
-    </Button>)
+    </button>)
     }
     return (<div className="periodErrorMessage">Out of voting period!</div>)
   }

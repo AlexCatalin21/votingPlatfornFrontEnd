@@ -22,22 +22,36 @@ export default function AppNavbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
-            <Nav.Link href="/campaigns">Campaigns</Nav.Link>
+            <Nav.Link className="app-nav-link" href="/">
+              Home
+            </Nav.Link>
+            <Nav.Link className="app-nav-link" href="/campaigns">
+              Campaigns
+            </Nav.Link>
             {userIsLogin ? (
               <Nav>
-                <Nav.Link href="/my-campaigns">My Campaigns</Nav.Link>
-                <Nav.Link href="/logout">Logout</Nav.Link>
+                <Nav.Link className="app-nav-link" href="/my-campaigns">
+                  My Campaigns
+                </Nav.Link>
+                <Nav.Link className="app-nav-link" href="/logout">
+                  Logout
+                </Nav.Link>
               </Nav>
             ) : (
-              <Nav.Link href="/login">Sign in</Nav.Link>
+              <Nav.Link className="app-nav-link" href="/login">
+                Sign in
+              </Nav.Link>
             )}
           </Nav>
           <Nav inline>
             {userIsLogin ? (
               <div className="mr-sm-2"> Welcome {firstName} </div>
             ) : (
-              <Nav.Link href="/register" className="mr-sm-2">
+              <Nav.Link
+                className="app-nav-link"
+                href="/register"
+                className="mr-sm-2"
+              >
                 Register
               </Nav.Link>
             )}
@@ -48,6 +62,7 @@ export default function AppNavbar() {
   );
 }
 const logoStyle = {
-  width: "90%",
-  height: "70%",
+  width: "80%",
+  float:"left"
+
 };

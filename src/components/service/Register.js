@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { Formik, Form, Field } from "formik";
 import { Button } from "react-bootstrap";
@@ -21,8 +21,8 @@ export default function Register() {
 
   const validateRequiredField = (value) => {
     let error;
-    if(!value){
-      error= "Please complete the field."
+    if (!value) {
+      error = "Please complete the field.";
     }
     return error;
   };
@@ -46,7 +46,6 @@ export default function Register() {
   };
 
   const validateConfirmPassword = (pass, value) => {
-
     let error = "";
     if (pass && value) {
       if (pass !== value) {
@@ -101,95 +100,121 @@ export default function Register() {
         {({ errors, touched, isValidating }) => (
           <div className="container">
             <h3>Register</h3>
-            <div className="registerForm">
+            <div className="h-100 p-5 bg-light border rounded-3">
               <Form>
                 <div className="registerField">
-                  <div>
-                    <strong>Email</strong>
-                  </div>
+                  <label className="form-label" for="email">
+                    Email
+                  </label>
                   <Field
-                    className="inputField"
+                    className="form-control"
                     name="email"
                     type="email"
                     placeholder="Email..."
                     validate={validateEmail}
                   />
-                  {errors.email && touched.email && <div className="errorMessage">{errors.email}</div>}
+                  {errors.email && touched.email && (
+                    <div className="errorMessage">{errors.email}</div>
+                  )}
                 </div>
                 <div className="registerField">
                   <div className="registerField">
-                    <div>
-                      <strong>Firstname</strong>
-                    </div>
+                    <label for="firstName" className="form-label">
+                      Firstname
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       name="firstName"
                       type="text"
                       placeholder="Firstname..."
-                      validate ={validateName}
+                      validate={validateName}
                     />
-                    {errors.firstName && touched.firstName && <div className="errorMessage">{errors.firstName}</div>}
+                    {errors.firstName && touched.firstName && (
+                      <div className="errorMessage">{errors.firstName}</div>
+                    )}
                   </div>
                   <div className="registerField">
-                    <div>
-                      <strong>Lastname</strong>
-                    </div>
+                    <label for="lastName" className="form-label">
+                      Lastname
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       name="lastName"
                       type="text"
                       placeholder="Lastname..."
                       validate={validateName}
                     />
-                    {errors.lastName && touched.lastName && <div className="errorMessage">{errors.lastName}</div>}
+                    {errors.lastName && touched.lastName && (
+                      <div className="errorMessage">{errors.lastName}</div>
+                    )}
                   </div>
                 </div>
                 <div className="registerField">
                   <div className="registerField">
-                    <div>
-                      <strong>Password</strong>
-                    </div>
+                    <label for="password" className="form-label">
+                      Password
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       name="password"
                       type="password"
                       placeholder="Password..."
                       validate={validatePassword}
                     />
-                    {errors.password && touched.password && <div className="errorMessage">{errors.password}</div>}
+                    {errors.password && touched.password && (
+                      <div className="errorMessage">{errors.password}</div>
+                    )}
                   </div>
                   <div className="registerField">
-                    <div>
-                      <strong>Confirm password</strong>
-                    </div>
+                    <label for="confirmPassword" className="form-label">
+                      Confirm password
+                    </label>
                     <Field
-                      className="inputField"
+                      className="form-control"
                       name="confirmPassword"
                       type="password"
-                      placeholder="Confirm password"
+                      placeholder="Confirm password..."
                       validate={(values) =>
-                        validateConfirmPassword(values.password, values)}
+                        validateConfirmPassword(values.password, values)
+                      }
                     />
-                     {errors.confirmPassword && touched.confirmPassword && <div className="errorMessage">{errors.confirmPassword}</div>}
-
+                    {errors.confirmPassword && touched.confirmPassword && (
+                      <div className="errorMessage">
+                        {errors.confirmPassword}
+                      </div>
+                    )}
                   </div>
                 </div>
                 <div className="registerField">
-                  <div>
-                    <strong>Birthdate</strong>
-                  </div>
-                  <Field className="inputField" name="birthDate" type="date" validate={validateRequiredField} />
-                  {errors.birthDate && touched.birthDate && <div className="errorMessage">{errors.birthDate}</div>}
+                  <label for="birthdate">
+                    Birthdate
+                  </label>
+                  <Field
+                    className="form-control"
+                    name="birthDate"
+                    type="date"
+                    validate={validateRequiredField}
+                  />
+                  {errors.birthDate && touched.birthDate && (
+                    <div className="errorMessage">{errors.birthDate}</div>
+                  )}
                 </div>
                 <div className="registerField">
-                  <div>
-                    <strong>Select your gender</strong>
-                  </div>
-                  <Field className="inputField" as="select" name="genderID" validate={validateRequiredField}>
+                  <label for="genderID" className="form-label">
+                    Select your gender
+                  </label>
+                  <Field
+                    className="form-control"
+                    as="select"
+                    name="genderID"
+                    validate={validateRequiredField}
+                  >
                     <option value="1">Male</option>
                     <option value="2">Female</option>
                   </Field>
-                  {errors.genderID && touched.genderID && <div className="errorMessage">{errors.genderID}</div>}
+                  {errors.genderID && touched.genderID && (
+                    <div className="errorMessage">{errors.genderID}</div>
+                  )}
                 </div>
                 <Button
                   className="registerbtn"

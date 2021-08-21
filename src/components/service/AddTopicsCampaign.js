@@ -52,74 +52,75 @@ export default function AddTopicsCampaign() {
             <div className="addCampaignForm">
               <div>
                 <Form>
-                  <div>
-                    <div>
-                      <div>
-                        <strong>Campaign name</strong>
-                      </div>
+                <div className="row">
+                    <div className="col">
+                      <label for="name" className="form-label">
+                        Campaign name
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
                         name="name"
                         placeholder="Campaign name"
                       />
                     </div>
-                    <div>
-                      <div>
-                        <strong>Campaign description</strong>
-                      </div>
+                    <div className="col">
+                      <label for="description" className="form-label">
+                        Campaign description
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
                         name="description"
                         placeholder="Campaign description"
                       />
                     </div>
                   </div>
-                  <div>
-                    <div>
-                      <div>
-                        <strong>Start date</strong>
-                      </div>
+                  <div className="row">
+                    <div className="col">
+                      <label for="startDate" className="form-label">
+                        Start date
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
                         name="startDate"
                         type="datetime-local"
                       />
                     </div>
-                    <div>
-                      <div>
-                        <strong>Expire date</strong>
-                      </div>
+                    <div className="col">
+                      <label for="expireDate" className="form-label">
+                        Expire date
+                      </label>
                       <Field
-                        className="inputField"
+                        className="form-control"
                         name="expireDate"
                         type="datetime-local"
                       />
                     </div>
                   </div>
+
                   <div>
-                    <div>
-                      <div>
-                        <strong>Password</strong>
-                      </div>
-                      <Field
-                        className="inputField"
-                        type="password"
-                        name="password"
-                        placeholder="Password"
-                      />
-                    </div>
-                    <div>
-                      <div>
-                        <strong>Confirm password</strong>
-                      </div>
-                      <Field
-                        className="inputField"
-                        type="password"
-                        name="confirmedPassword"
-                        placeholder="Confirm password"
-                      />
-                    </div>
+                    <label for="password" className="form-label">
+                      Password
+                    </label>
+                    <Field
+                      className="form-control"
+                      type="password"
+                      name="password"
+                      placeholder="Password"
+                    />
                   </div>
+
+                  <div>
+                    <label for="confirmedPassword" className="form-label">
+                      Confirm passowrd
+                    </label>
+                    <Field
+                      className="form-control"
+                      type="password"
+                      name="confirmedPassword"
+                      placeholder="Confirm password"
+                    />
+                  </div>
+
                   <div>
                     <div>
                       <FieldArray name="topicDtoList">
@@ -133,22 +134,22 @@ export default function AddTopicsCampaign() {
                                   <h5 className="mt-3 text-color">Topic</h5>
                                   <div>
                                     <div>
-                                      <div>
-                                        <strong>Topic name</strong>
-                                      </div>
+                                      <label for={topicName} className="form-label">
+                                        <>Topic name</>
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={topicName}
                                         placeholder="Topic name"
                                       />
                                     </div>
                                     <div>
-                                      <div>
-                                        <strong>Topic description</strong>
-                                      </div>
+                                      <label for={topicDescription}>
+                                        <>Topic description</>
+                                      </label>
                                       <Field
-                                        className="inputField"
+                                        className="form-control"
                                         type="text"
                                         name={topicDescription}
                                         placeholder="Topic description"
@@ -168,8 +169,9 @@ export default function AddTopicsCampaign() {
                                 })
                               }
                             >
-                              Add Another Topic
+                              Add another topic
                             </Button>
+                            <Button>Add topics from file</Button>
                           </div>
                         )}
                       </FieldArray>

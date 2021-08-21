@@ -45,7 +45,7 @@ export default function CampaignList() {
       <div className="row">
         {filteredCampaigns.map((campaign, index) => {
           return (
-            <div className="col">
+            <div className="col campList">
               <CampaignCard
                 cardTitle={campaign.name}
                 startDate={formatDate(campaign.startDate)}

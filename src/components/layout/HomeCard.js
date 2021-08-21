@@ -20,7 +20,7 @@ export default function HomeCard(props) {
 
     return (
         <div>
-            <Card style={{ width: "25rem" }}>
+            <Card style={{ width: "15rem" }}>
             <Card.Img variant="top" src={props.img} />
             <Card.Body>
               <Card.Title>{props.cardTitle}</Card.Title>

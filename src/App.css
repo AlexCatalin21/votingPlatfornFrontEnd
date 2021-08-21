@@ -1,13 +1,24 @@
+@import url("https://fonts.googleapis.com/css?family=Archivo+Black|Roboto&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+@import url("https://fonts.googleapis.com/css?family=Mulish");
+
+/* * {
+  box-sizing: border-box;
+  font-weight: normal;
+} */
+
 .App {
-  text-align: center;
-  font-family: sans-serif !important;
+  /* text-align: center; */
+  font-family: "Mulish", sans-serif !important;
+  display: flex;
+  flex-direction: column;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-
 
 .App-header {
   background-color: #282c34;
@@ -22,10 +33,18 @@
 
 .App-link {
   color: #61dafb;
+  font-family: "Open Sans", Sans-serif;
+  font-size: 19px;
+  font-weight: 600;
 }
 
-
-
+.app-nav-link {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 18px;
+  font-weight: 700;
+}
 
 .registerForm {
   display: block !important;
@@ -42,19 +61,17 @@
   margin-bottom: 15px;
 }
 
-
-.inputField{
+.inputField {
   margin-left: 5px;
   margin-right: 7px;
   width: 500px;
   margin-bottom: 12px;
 }
 
-.container{
+.container {
   margin-top: 30px;
   margin-bottom: auto;
 }
-
 
 .loginField {
   margin-bottom: 15px;
@@ -69,10 +86,9 @@
   border-color: darkgrey;
   padding: 25px;
   background-color: #fafafa;
-
 }
 
-.addCampaignForm{
+.addCampaignForm {
   display: block !important;
   margin-top: 2px;
   margin-bottom: 20px;
@@ -82,92 +98,89 @@
   border-color: darkgrey;
   padding: 25px;
   background-color: #fafafa;
-
 }
 
-.addCandidatebtn{
-  margin:5px;
+.addCandidatebtn {
+  margin: 5px;
 }
 
-.addCampaignForm{
+.addCampaignForm {
   text-align: left !important;
 }
 
-
-.homeContainer{
+.homeContainer {
   display: inline-flex !important;
 }
 
-.campaignCandidates{
+.campaignCandidates {
   text-align: left !important;
-  border: 2px solid;
+  /* border: 2px solid;
   border-radius: 7px;
-  border-color: darkgrey;
+  border-color: darkgrey; */
   padding: 6px;
-  margin:10px;
-  
+  margin: 10px;
+  display: inline;
 }
 
-.candidateItem{
+.candidateItem {
   margin: 5px !important;
 }
 
-.candidateInfo:not(:last-child){
+.candidateInfo:not(:last-child) {
   border-bottom: 2px solid !important;
   border-color: darkgrey !important;
 }
 
-.fieldLabel{
+.fieldLabel {
   margin-right: 3px;
 }
 
-
-.row{
+.row {
   margin-bottom: 20px;
 }
 
-.container{
+.container {
   min-height: 80.2vh;
   display: flex !important;
   flex-direction: column !important;
   margin-top: 50px;
-  width:fit-content !important;
-  
+  width: fit-content !important;
 }
 
-.footer{
+.footer {
   margin-top: auto;
-}
-
-.card{
-
-}
-
-.loginbtn{
+  bottom: 0;
   width: 100%;
 }
 
-.registerbtn{
+.card {
+}
+
+.loginbtn {
   width: 100%;
 }
 
-.btn_2{
+.registerbtn {
+  width: 100%;
+}
+
+.btn_2 {
   margin-top: 10px;
 }
 
-.accessButton{
+.accessButton {
   margin-left: 5px;
 }
 
-.voteBtn{
+.voteBtn {
   margin-bottom: 5px;
 }
 
-.periodErrorMessage{
+.periodErrorMessage {
   color: red;
 }
 
-.errorMessage{
+.errorMessage {
   color: red;
 }
 
@@ -181,75 +194,82 @@
   width: 1px;
 }
 
-
-.searchTab{
+.searchTab {
   margin-bottom: 20px;
 }
 
-body{
-  background-image: url(/home/alex/Documents/JAVA-ADVANCED/voting-platform/vp-front-end/vpfrontend/src/resources/background.png);
+body {
+  /* background-image: url(/home/alex/Documents/JAVA-ADVANCED/voting-platform/vp-front-end/vpfrontend/src/resources/background.png);
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
 
-  font-family: sans-serif !important;
-  
+  font-family: "Arimo", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  color: #555;
+  background: #222;
+  text-align: center;
 }
 
-.welcomeMessage{
+.welcomeMessage {
   text-shadow: 2px 2px 5px grey;
   font-size: 90px;
   color: whitesmoke;
   text-align: center;
 }
 
-
-.homePageDescription{
+.homePageDescription {
   color: white;
   text-shadow: 2px 2px 5px grey;
   font-size: 40px;
+  height: 300px;
+  text-align: center !important;
 }
 
-
-.homePage{
-  margin-left: 100px !important;
+.homePage {
+  /* margin-left: 100px !important;
   margin-right: 100px !important;
-  margin-bottom: 31px !important;
+  margin-bottom: 31px !important; */
 }
 
-.welcomeDescription{
-  margin-top: 120px;
-  margin-bottom: 160px !important;
+.welcomeDescription {
+  background-image: url(/home/alex/Documents/JAVA-ADVANCED/voting-platform/vp-front-end/vpfrontend/src/resources/background_1.jpg);
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  /* margin-top: 120px; */
+  /* margin-bottom: 160px !important; */
   display: block !important;
-  background:rgba(102, 102, 102, 0.5);
+  font-family: "Archivo Black", sans-serif !important;
+  /* background: rgba(102, 102, 102, 0.5); */
 }
 
-.createCampaigns{
-  color:white;
-  margin-top: 120px;
-  display: flex !important;
+.createCampaigns {
+ padding: 15px;
 }
 
-.createCamapignsTitle{
+.createCamapignsTitle {
   font-size: 80px;
   text-shadow: 2px 2px 5px grey;
 }
-.candidatesHome{
+.candidatesHome {
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   margin-bottom: 30px;
 }
-.candidatesHome:hover{
+.candidatesHome:hover {
   transform: scale(1.1);
 }
 
-.topicsHome{
+.topicsHome {
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
   margin-bottom: 30px;
 }
-.topicsHome:hover{
+.topicsHome:hover {
   transform: scale(1.1);
 }
 
@@ -257,17 +277,246 @@ body{
   transform: scale(1.2);
 }
 
-.zoom{
+.zoom {
   transition: transform 0.7s;
 }
-a:hover{
+a:hover {
   text-decoration: none;
 }
 
-.campaignPage{
-  color:white;
+.campaignPage {
+  color: black;
   margin-left: 50px !important;
   margin-right: 50px !important;
   width: inherit !important;
   text-align: left !important;
+}
+
+.profile-card {
+  background: #393b3d;
+  height: 400px;
+  width: 250px;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.infos {
+  height: 75%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.img-border {
+  background: linear-gradient(to bottom right, #111316, #ee2727);
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-top: 5px;
+}
+
+.img-border img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.name {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.specialty {
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.social-media {
+  width: 100%;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.social-media a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: all 0.4s ease;
+}
+
+.social-media a:hover {
+  color: #e07272;
+}
+
+.contact-me-btn {
+  background: transparent;
+  border: 1px solid #ed4645;
+  border-radius: 3px;
+  outline: none;
+  width: 130px;
+  height: 35px;
+  cursor: pointer;
+  color: #ed4645;
+  margin-top: 9px;
+  margin-bottom: 5px;
+  transition: all 0.4s ease;
+}
+
+.contact-me-btn:hover {
+  color: #fff;
+  background: #ed4645;
+}
+
+.stats {
+  height: 30%;
+  background: rgb(237, 70, 69);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #393b3d
+}
+
+.candidates{
+  margin-top: 20px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 32%;
+  /* background: red; */
+}
+
+.stat:nth-child(2) {
+  border: 1px solid #adadad;
+  border-top: 0;
+  border-bottom: 0;
+  /*   background: blue; */
+}
+
+.stat-num {
+  font-size: 1.3rem;
+}
+
+.stat-name {
+  font-size: 0.7em;
+  color: black;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono");
+* {
+  box-sizing: border-box;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: 2.2em;
+}
+
+.flip {
+  position: relative;
+  width:800px !important;
+  margin:40px;
+  
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 0.5s;
+  transition-property: transform, opacity;
+}
+.flip > .front {
+  transform: rotateY(0deg);
+}
+.flip > .back {
+  position: absolute;
+  opacity: 0;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  transform: rotateY(-180deg);
+}
+.flip:hover > .front {
+  transform: rotateY(180deg);
+}
+.flip:hover > .back {
+  opacity: 1;
+  transform: rotateY(0deg);
+}
+.flip.flip-vertical > .back {
+  transform: rotateX(-180deg);
+}
+.flip.flip-vertical:hover > .front {
+  transform: rotateX(180deg);
+}
+.flip.flip-vertical:hover > .back {
+  transform: rotateX(0deg);
+}
+
+.flip {
+  position: relative;
+  display: inline-block;
+  margin-right: 2px;
+  margin-bottom: 1em;
+  width: 400px;
+  height: 260px;
+  margin-top: 50px;
+}
+.flip > .front,
+.flip > .back {
+  display: block;
+  color: white;
+  width: inherit;
+  background-size: cover !important;
+  background-position: center !important;
+  height: 220px;
+  padding: 1em 2em;
+  background: #313131;
+  border-radius: 10px;
+}
+.flip > .front p,
+.flip > .back p {
+  font-size: 0.9125rem;
+  line-height: 160%;
+  color: #f7ad4f;
+}
+
+.text-shadow {
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.04), 2px 2px rgba(0, 0, 0, 0.04),
+    3px 3px rgba(0, 0, 0, 0.04), 4px 4px rgba(0, 0, 0, 0.04),
+    0.125rem 0.125rem rgba(0, 0, 0, 0.04), 6px 6px rgba(0, 0, 0, 0.04),
+    7px 7px rgba(0, 0, 0, 0.04), 8px 8px rgba(0, 0, 0, 0.04),
+    9px 9px rgba(0, 0, 0, 0.04), 0.3125rem 0.3125rem rgba(0, 0, 0, 0.04),
+    11px 11px rgba(0, 0, 0, 0.04), 12px 12px rgba(0, 0, 0, 0.04),
+    13px 13px rgba(0, 0, 0, 0.04), 14px 14px rgba(0, 0, 0, 0.04),
+    0.625rem 0.625rem rgba(0, 0, 0, 0.04), 16px 16px rgba(0, 0, 0, 0.04),
+    17px 17px rgba(0, 0, 0, 0.04), 18px 18px rgba(0, 0, 0, 0.04),
+    19px 19px rgba(0, 0, 0, 0.04), 1.25rem 1.25rem rgba(0, 0, 0, 0.04);
+}
+
+
+.inputFieldModal{
+  display: flex;
+}
+
+.searchField{
+  width: 300px !important;
+}
+
+.searchGroup{
+  display:flex;
+}
+
+.campList{
+  margin-bottom: 25px;
 }

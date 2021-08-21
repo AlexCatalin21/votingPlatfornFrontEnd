@@ -88,14 +88,14 @@ export default function Login() {
         {({ errors, touched, isValidating }) => (
           <div className="container">
             <h3>Sign in</h3>
-            <div className="loginForm">
+            <div className="h-100 p-5 bg-light border rounded-3">
               <Form>
-                <div className="loginField">
-                  <div>
-                    <strong>Email</strong>
-                  </div>
+                <div className="mb-3">
+                  <label for="email" className="form-label">
+                    Email
+                  </label>
                   <Field
-                    className="inputField"
+                    className="form-control"
                     name="email"
                     type="email"
                     placeholder="Email..."
@@ -106,11 +106,11 @@ export default function Login() {
                   )}
                 </div>
                 <div className="loginField">
-                  <div>
-                    <strong>Password</strong>
-                  </div>
+                  <label for="password" className="form-label">
+                    Password
+                  </label>
                   <Field
-                    className="inputField"
+                    className="form-control"
                     name="password"
                     type="password"
                     placeholder="Password..."
